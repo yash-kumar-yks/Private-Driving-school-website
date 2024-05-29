@@ -20,41 +20,78 @@
 .Header_buttons{
     display:flex;
     justify-content:space-around;
-   
     bottom:0px;
+    height:50%;
+    padding-top: 2px;
 }
 .Right-Panel-Header{
     margin-right:25px;
     width:50%;
-   
+    max-height:100%;
 }
 .Login_info_Header{
     height:50%;
     display:flex;
     align-items: center;
     justify-content:space-around;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     
 }
 h3{
    padding-left:6px;
     color:white;
-    font:13px Roboto,sans-serif;
-    text-decoration: underline 0.15em rgba(0, 0, 0, 1);
+    font-weight: 400;
+    font:Roboto,sans-serif;
+    text-decoration: underline 0.15em #171c8f;
     text-underline-offset: 0.2em;
     transition: text-decoration-color 300ms, text-underline-offset 300ms;
+
 }
 a{
     text-decoration: none;
     color:whitesmoke;
-    padding:5px;
+    margin-left:5px;
+    position: relative;
 }
+
+span{
+    margin-left: 12%;
+}
+  
+
+  a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  a:hover::before {
+    transform: scaleX(1);
+  }
   h3:hover {
     text-decoration-color: rgb(242, 242, 246);
     text-underline-offset: 0.4em;
+    
   }
   button{
     background-color: #171c8f;
     color:white;
-    border:none
+   margin-right: 200px;
+    border:none;
+    text-decoration: underline 0.15em #171c8f;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 300ms, text-underline-offset 300ms;
   }
+  
+  button:hover{
+    text-decoration-color: rgb(242, 242, 246);
+    text-underline-offset: 0.4em;
+  }
+

@@ -1,11 +1,10 @@
 import React from 'react';
 import './Header.css';
 import { FaPhoneAlt } from "react-icons/fa";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
+import { CgProfile } from "react-icons/cg";
 function Header() {
-    let toggle = false;
-
-
+    
     return (
         <div className='conatiner-Header'>
 
@@ -17,12 +16,16 @@ function Header() {
             <div className='Right-Panel-Header'>
 
                 <div className='Login_info_Header'>
-                    <span>
-                        <FaPhoneAlt />
-                        <a href="">1800 1234 12</a>
+                    <span className='contact'>
+                        <FaPhoneAlt color="white"/>
+                        <a href="">1800 1234 1234</a>
                     </span>
-                    <input placeholder="Search Here" />
-                    <button className="buttons" > LOGIN </button>
+                    <input placeholder="Search Here" className='input'/>
+
+                
+                <button className='buttons'> LOGIN </button>
+               
+                    
 
                 </div>
                 <div className="Header_buttons">
