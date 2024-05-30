@@ -30,11 +30,11 @@ function Header() {
                 </div>
                 <div className="Header_buttons">
 
-                    <h3>ABOUT US</h3>
-                    <h3>WHY US</h3>
-                    <h3> COURSES</h3>
-                    <h3> SCHOOL LOCATOR</h3>
-                    <h3> MOCK LLR TEST</h3>
+                    <h3 className='Headers'>ABOUT US</h3>
+                    <h3 className='Headers'>WHY US</h3>
+                    <h3 className='Headers'> COURSES</h3>
+                    <h3 className='Headers'> SCHOOL LOCATOR</h3>
+                    <h3 className='Headers'> MOCK LLR TEST</h3>
 
                 </div>
 

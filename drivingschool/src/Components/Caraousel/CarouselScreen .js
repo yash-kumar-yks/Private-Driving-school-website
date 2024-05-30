@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "./CarouselScreen .css";
 const CarouselScreen = () => {
@@ -17,13 +17,21 @@ const CarouselScreen = () => {
     }
   ];
   const [slide, setSlide] = useState(0);
+  useEffect(() => {
 
+  setTimeout(() => {
+    setSlide(slide === data.length - 1 ? 0 : slide + 1);
+  }, 4000);
+  
+  }, [slide])
+  
   const nextSlide = () => {
     setSlide(slide === data.length - 1 ? 0 : slide + 1);
   };
 
   const prevSlide = () => {
-    setSlide(slide === 0 ? data.length - 1 : slide - 1);
+      setSlide(slide === 0 ? data.length - 1 : slide - 1);
+   
   };
 
   return (
@@ -31,6 +39,7 @@ const CarouselScreen = () => {
       <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
       {data.map((item, idx) => {
         return (
+          
           <img
             src={item.src}
             alt={item.alt}
@@ -51,6 +60,7 @@ const CarouselScreen = () => {
               className={
                 slide === idx ? "indicator" : "indicator indicator-inactive"
               }
+              
               onClick={() => setSlide(idx)}
             ></button>
           );
