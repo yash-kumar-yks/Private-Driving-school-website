@@ -1,8 +1,10 @@
-import Learner from "../assets/Learner Extended Track Course.png";
+import Learner from "../../assets/Learner Extended Track Course.png";
 import './Card.css'
-function Card() {
+function Card(props) {
+    const data=props.data;
     return (
         <div className="Card">
+            {console.log("Data",data,data["CourseModule"])}
             <img className="Card-image" src={Learner}></img>
             <div className="First-statement">
                 <h1>Learner Standard Track Course</h1>
@@ -11,11 +13,20 @@ function Card() {
             </div>
 
             <div className="Second-statement">
-            <h1 className="NumberofCourse" style={{ fontSize: "48px"}}> 6</h1>
-            <div class="vl"></div>
+            <div className="NumberofCourse" style={{ fontSize: "48px"}}><span>{data.CourseModule}</span></div>
+            <div className="vl"></div>
             <div className="v2">
                 <h3 style={{ padding: "5px" }}>Number of Modules</h3>
                 <p>Get comprehensive understanding of driving through well designed modules.</p></div>
+                
+            </div>
+
+            <div className="Second-statement">
+            <div className="NumberofCourse" style={{ fontSize: "48px"}}> {data.CourseHour} </div>
+            <div className="vl"></div>
+            <div className="v2">
+                <h3 style={{ padding: "5px" }}>Number of Hours</h3>
+                <p>Get acquainted with nunances of driving theory, practical and simulator sessions.</p></div>
                 
             </div>
 
