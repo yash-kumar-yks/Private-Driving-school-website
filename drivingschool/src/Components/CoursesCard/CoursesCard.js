@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './CoursesCard.css';
 import Learner from "../../assets/Learner Extended Track Course.png";
 import Card from '../Card/Card';
+import SlideShow from '../SlideShow';
 function CoursesCard() {
-    const [countCardAppear, setCountCardAppear] = useState(0);
     const datajson = [
         {
             "CourseHour": "21",
@@ -28,7 +28,35 @@ function CoursesCard() {
 
 
     ];
+    const [countcardsVisible, setCountcardsVisible] = useState(0);
 
+    const cards = datajson.map((data, idx) => {
+        if(idx===countcardsVisible || idx===countcardsVisible+1){
+        return (
+            <Card data={data}/>
+        )
+    }
+    })
+
+const handleLeftClick=()=>{
+    countcardsVisible===0?setCountcardsVisible(datajson.length-1):setCountcardsVisible(countcardsVisible-1);
+}
+const handleRightClick=()=>{
+    countcardsVisible===datajson.length-1?setCountcardsVisible(0):setCountcardsVisible(countcardsVisible+1);
+}
+  
+
+
+
+
+const buttons=()=>{
+    return(
+        <div>
+<button onClick={handleLeftClick}> left </button>
+<button onClick={handleRightClick}> right </button>
+</div>
+    )
+}
 
     return (
         <div>
@@ -40,26 +68,13 @@ function CoursesCard() {
                 courses and master the skill of driving at Maruti Suzuki Driving School.
             </p>
         </div>
-       
-        <div className='Cards'>
-        {datajson&&datajson.map((data, idx) => {
-           
-            if(idx===countCardAppear || idx===countCardAppear+1){
-                console.log(idx);
-            return (
-
-            <div>
-                <Card data={data}/>
+       <div  >
+        <div>
+                <SlideShow flowCard={cards} isAutomatic={true} buttons={buttons} />
+                </div>
          </div>
-        );
-    }
-    
-    })}
-    
-        
         </div>
-    </div>
-    );
+        );
 }
 
 export default CoursesCard
