@@ -1,5 +1,6 @@
 import Learner from "../../assets/Learner Extended Track Course.png";
 import "./Card.css";
+import Buttons from '../../UI/Buttons.js';
 function Card({ data }) {
   return (
     <div className="Card">
@@ -43,9 +44,12 @@ function Card({ data }) {
       <div className="CourseInfo">
         <div className="Amount">₹{data.Amount}*</div>
 
-        <p>(Starting course fee)</p>
+        <p className="StarrtingCourseFee">(Starting Course Fees)</p>
 
-        <button  className="ViewCourseButton"> VIEW COURSE</button>
+       
+        <Buttons backgroundColor="#171c8f" hoverColor="#ffffff">
+        VIEW COURSE
+      </Buttons>
       </div>
       
       <div className="CourseInfoParagraph">
