@@ -7,14 +7,14 @@ export default function SlideShow({flowCard,isAutomatic, buttons }) {
     <div>
         <div className='Cards'>
             {flowCard}
-        </div>
-
+        
         {isAutomatic? (
             <div>
                 {buttons}
             </div>
         ) : null }
-    
+        </div>
+
     </div>
     
 )}

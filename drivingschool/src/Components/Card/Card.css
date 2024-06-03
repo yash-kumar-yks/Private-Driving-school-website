@@ -7,7 +7,9 @@
     rgba(208,212, 248, 0), /* 75% opacity in the middle */
     rgba(208,212, 248,0.25),  /* 50% opacity at the bottom */
     rgba(208,212, 248, 0.5)  /* 25% opacity at the very bottom */
+    
 );
+
 }
 .Card-image {
   max-height: 250px;

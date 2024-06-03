@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Define the styled button component
 const StyledButton = styled.button`
   background-color: ${({ backgroundColor }) => backgroundColor || 'blue'};
   height: 34px;

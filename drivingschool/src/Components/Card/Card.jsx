@@ -2,6 +2,15 @@ import Learner from "../../assets/Learner Extended Track Course.png";
 import "./Card.css";
 import Buttons from '../../UI/Buttons.js';
 function Card({ data }) {
+  const options = [
+    { value: 'apple', label: 'Apple' },
+    { value: 'banana', label: 'Banana' },
+    { value: 'orange', label: 'Orange' },
+  ];
+
+  const handleSelect = (selectedValue) => {
+    alert(`Selected value: ${selectedValue}`);
+  };
   return (
     <div className="Card">
       <img className="Card-image" src={Learner}></img>
@@ -56,6 +65,8 @@ function Card({ data }) {
         Price can vary from city to city. For accurate pricing, please check the
         course details page. (Prices are exclusive of 18% GST)
       </div>
+
+     
     </div>
   );
 }

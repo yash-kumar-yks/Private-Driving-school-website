@@ -1,31 +1,46 @@
-h1{
-    font-weight: 600;
-    color: #171c8f;
+h1 {
+  font-weight: 600;
+  color: #171c8f;
 }
-p{
-    font-size: 0.875rem;
-    line-height: 18px;
-    font-weight: 400;
-    color: #000;
-    position: relative;
-    
+p {
+  font-size: 0.875rem;
+  line-height: 18px;
+  font-weight: 400;
+  color: #000;
+  position: relative;
 }
-.HeaderCourse{
-    padding-left:150px;
+.HeaderCourse {
+  padding-left: 150px;
 }
-.image{
-    max-height: 250px;
-    padding-left:150px;
+.image {
+  max-height: 250px;
+  padding-left: 150px;
 }
-.imagesecond{
-    max-height: 250px;
-    padding-left: 60px;
-    margin-right: 100px;
+.imagesecond {
+  max-height: 250px;
+  padding-left: 60px;
+  margin-right: 100px;
 }
 
-.Cards{
-    display:flex;
-    
-    margin-left:50px
+.Cards {
+  display: flex;
+  margin-left: 50px;
+ position: absolute;
 }
+
+.leftHandClick {
+  border: 1px solid blue;
+  position: absolute;
+  left:0;
+  bottom:50%;
+    filter: drop-shadow(0px 0px 5px #555);
+  width: 2rem;
+  height: 2rem;
+  color: black;
+}
+.RightHandClick {
+  float: right;
+  border: 1px solid red;
+}
+
 
