@@ -25,22 +25,23 @@ p {
 .Cards {
   display: flex;
   margin-left: 50px;
- position: absolute;
 }
 
 .leftHandClick {
-  border: 1px solid blue;
   position: absolute;
-  left:0;
-  bottom:50%;
-    filter: drop-shadow(0px 0px 5px #555);
+  left: 0;
+  bottom: 50%;
+  filter: drop-shadow(0px 0px 5px #555);
   width: 2rem;
   height: 2rem;
-  color: black;
+  color: white;
 }
 .RightHandClick {
-  float: right;
-  border: 1px solid red;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  filter: drop-shadow(0px 0px 5px #555);
+  width: 2rem;
+  height: 2rem;
 }
-
-

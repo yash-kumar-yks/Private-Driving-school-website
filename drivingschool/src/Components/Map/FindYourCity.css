@@ -1,0 +1,21 @@
+
+.FindYourCityDiv{
+  border: 1px solid red;
+  height:150px;
+  padding:40px;
+  text-align: center;
+  background: url(../../assets/search-bg.jpg);
+  background-repeat: no-repeat, no-repeat;
+
+}
+
+.FindCityDropdown{
+  padding:20px;
+  
+}
+
+.FindYorCityHeading{
+  font-size:30px;
+  color:white;
+  padding-bottom: 40px;;
+}

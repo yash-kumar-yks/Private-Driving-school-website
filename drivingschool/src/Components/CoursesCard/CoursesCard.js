@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import SlideShow from "../../Utils/withSlideShow";
 import Dropdown from "../../UI/Dropdown.js";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import FindyourCity from "../Map/FindyourCity.js";
 
 function CoursesCard() {
   const datajson = [
@@ -70,7 +71,7 @@ function CoursesCard() {
       <BsArrowLeftCircleFill onClick={handleLeftClick} className="leftHandClick" />
       <BsArrowRightCircleFill
         onClick={handleRightClick}
-        className="arrow arrow-right"
+        className="RightHandClick"
       />
        
       </div>
@@ -90,7 +91,7 @@ function CoursesCard() {
           Suzuki Driving School.
         </p>
       </div>
-      <div>
+      
         <div>
           <SlideShow
             flowCard={cards}
@@ -98,7 +99,9 @@ function CoursesCard() {
             buttons={buttons}
           />
         </div>
-      </div>
+     <div>
+     <FindyourCity/>
+     </div>
       
     </div>
   );

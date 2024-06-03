@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
-  width: 200px;
+  width: 300px;
   font-family: Arial, sans-serif;
 `;
 
 const DropdownButton = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: #d0d4f8;
+  background-color: #ffffff;
   color: #333;
   border: none;
   border-radius: 4px;
@@ -46,10 +47,15 @@ const DropdownItem = styled.div`
   &:hover {
     background-color: #f1f1f1;
   }
-  
-`
-// background-color: ${({ isSelected }) => (isSelected ? '#f1f1f1' : 'white')};
-;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+`;
 
 const Caret = styled.span`
   border: solid #333;
@@ -61,40 +67,34 @@ const Caret = styled.span`
   transition: transform 0.3s ease;
 `;
 
-const Dropdown = ({ options, onSelect }) => {
+const SearchableDropdown = ({ options, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(options[0].label);
-  const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [selected, setSelected] = useState('');
+  const [search, setSearch] = useState('');
   const dropdownRef = useRef(null);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
+    setSearch('');
   };
 
   const handleSelect = (option) => {
     setSelected(option.label);
     setIsOpen(false);
-    setFocusedIndex(-1);
     onSelect(option.value);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'ArrowDown') {
-      setFocusedIndex((prevIndex) => (prevIndex + 1) % options.length);
-    } else if (e.key === 'ArrowUp') {
-      setFocusedIndex((prevIndex) => (prevIndex - 1 + options.length) % options.length);
-    } else if (e.key === 'Enter' && focusedIndex >= 0) {
-      handleSelect(options[focusedIndex]);
-    } else if (e.key === 'Escape') {
-      setIsOpen(false);
-      setFocusedIndex(-1);
-    }
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
   };
+
+  const filteredOptions = options.filter(option =>
+    option.label.toLowerCase().includes(search.toLowerCase())
+  );
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
       setIsOpen(false);
-      setFocusedIndex(-1);
     }
   };
 
@@ -105,29 +105,23 @@ const Dropdown = ({ options, onSelect }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.removeEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, focusedIndex]);
-
   return (
     <DropdownContainer ref={dropdownRef}>
       <DropdownButton onClick={handleToggle}>
-        {selected}
+        {selected || 'Select city'}
         <Caret isOpen={isOpen} />
       </DropdownButton>
       <DropdownContent isOpen={isOpen}>
-        {options.map((option, index) => (
+        <SearchInput
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={handleSearch}
+        />
+        {filteredOptions.map(option => (
           <DropdownItem
             key={option.value}
             onClick={() => handleSelect(option)}
-            // isSelected={focusedIndex === index}
           >
             {option.label}
           </DropdownItem>
@@ -137,6 +131,14 @@ const Dropdown = ({ options, onSelect }) => {
   );
 };
 
+SearchableDropdown.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onSelect: PropTypes.func.isRequired,
+};
 
-
-export default Dropdown;
+export default SearchableDropdown;
