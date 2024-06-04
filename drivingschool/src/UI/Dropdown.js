@@ -69,6 +69,7 @@ const Caret = styled.span`
 
 const SearchableDropdown = ({ options, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Search city")
   const [selected, setSelected] = useState('');
   const [search, setSearch] = useState('');
   const dropdownRef = useRef(null);
@@ -81,7 +82,7 @@ const SearchableDropdown = ({ options, onSelect }) => {
   const handleSelect = (option) => {
     setSelected(option.label);
     setIsOpen(false);
-    onSelect(option.value);
+   setPlaceholder(onSelect(option.value));
   };
 
   const handleSearch = (e) => {
@@ -114,7 +115,7 @@ const SearchableDropdown = ({ options, onSelect }) => {
       <DropdownContent isOpen={isOpen}>
         <SearchInput
           type="text"
-          placeholder="Search..."
+          placeholder={placeholder}
           value={search}
           onChange={handleSearch}
         />

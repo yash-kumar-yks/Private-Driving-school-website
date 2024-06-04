@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SlideShow({flowCard,isAutomatic, buttons }) {
     
-    console.log(buttons);
+    
   return (
     <div>
         <div className='Cards'>

@@ -2,16 +2,14 @@ import './App.css';
 import Header from './Components/Header/Header';
 import CarouselScreen from './Components/Caraousel/CarouselScreen ';
 import CoursesCard from './Components/CoursesCard/CoursesCard';
+import StoreLocator from './Pages/StoreLocator';
 
 
 function App() {
   return (
 <div>
 
-<Header/>
-<CarouselScreen />
-<CoursesCard/>
-
+<StoreLocator/>
 </div>
    
     

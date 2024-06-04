@@ -1,38 +1,47 @@
+// src/MapComponent.js
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import './Map.css';
+import 'leaflet/dist/leaflet.css';
 
-// Sample data for store locations
-const stores = [
-  { id: 1, name: 'Store 1', position: [51.505, -0.09] },
-  { id: 2, name: 'Store 2', position: [51.515, -0.1] },
-  { id: 3, name: 'Store 3', position: [51.525, -0.12] }
-];
-
-// Custom marker icon
-const customIcon = new L.Icon({
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
+// Fix for missing marker icons in React-Leaflet
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
-const Map = () => {
+const locations = [
+  { coords: [18.67, 77.069], city: 'Delhi' },
+  { coords: [19.076, 72.877], city: 'Mumbai' },
+  { coords: [14.167, 75.040], city: 'Bangalore' },
+  { coords: [26.540, 77.069], city: 'Jaipur' },
+  { coords: [27.67, 78.719], city: 'Gangtok' }
+];
+
+const MapComponent = () => {
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '600px', width: '100%' }}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {stores.map(store => (
-        <Marker key={store.id} position={store.position} icon={customIcon}>
-          <Popup>
-            <b>{store.name}</b><br />Latitude: {store.position[0]}, Longitude: {store.position[1]}
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div>
+      <h1 style={{ padding: "20px" }}>Example Map with Multiple Markers</h1>
+      <p style={{ padding: "20px" }}>
+        This map displays multiple cities in India with markers.
+      </p>
+      <MapContainer center={[20.5937, 78.9629]} zoom={5} style={{ height: "80vh", width: "100%" }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {locations.map((location, idx) => (
+          <Marker key={idx} position={location.coords}>
+            <Popup>
+              {location.city}
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 };
 
-export default Map;
+export default MapComponent;
