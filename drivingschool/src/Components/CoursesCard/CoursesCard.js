@@ -100,7 +100,7 @@ function CoursesCard() {
           />
         </div>
      <div>
-     <FindyourCity/>
+     
      </div>
       
     </div>

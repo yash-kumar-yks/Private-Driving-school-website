@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
   import SearchableDropdown from '../../UI/Dropdown';
   import './FindYourCity.css';
+  import { Link } from "react-router-dom";
   import MapPhoto from "../../assets/search-bg.jpg";
   import {
     GetCountries,
@@ -9,8 +10,11 @@ import React, { useEffect, useState } from 'react'
     GetLanguages, 
   } from "react-country-state-city";
 import { FaCommentsDollar } from 'react-icons/fa';
+import Buttons from '../../UI/Buttons';
+import StoreLocator from '../../Pages/StoreLocator';
 
 const FindyourCity = () => {
+  const [citySelected, setCitySelected] = useState("")
   const [options, setOptions] = useState([]);
 const [citiesNameList, setCitiesNameList] = useState([]);
 const fetchData = async () => {
@@ -51,15 +55,25 @@ useEffect(() => {
 }, [citiesNameList]);
 
   const handleSelect = (selectedValue) => {
+    setCitySelected(selectedValue);
     return (selectedValue);
   };
   return (
     <div className='FindYourCityDiv'>
     <div className='FindYorCityHeading'>We have come closer to you. Now locate us</div>
     <div style={{color:"white"}}> Locate a driving school in your city.</div>
+    <div style={{display:"flex", justifyContent:"center"}}>
     <div className='FindCityDropdown'>
     <SearchableDropdown options={options} onSelect={handleSelect}/>
-     
+    </div>
+    
+    <div className="SearchButton">
+    <Link to={`/{citySelected}`}>
+    <Buttons backgroundColor="#ffffff" hoverColor="#171c8f">
+    SEARCH
+  </Buttons>
+  </Link>
+  </div>
     </div>
     </div>
   );

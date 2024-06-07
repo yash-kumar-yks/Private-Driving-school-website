@@ -27,7 +27,7 @@ const MapComponent = () => {
       <p style={{ padding: "20px" }}>
         This map displays multiple cities in India with markers.
       </p>
-      <MapContainer center={[20.5937, 78.9629]} zoom={5} style={{ height: "80vh", width: "100%" }}>
+      <MapContainer center={[20.5937, 78.9629]} zoom={13} style={{ height: "50vh", width: "100%" }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -47,10 +47,11 @@ function Card({ data }) {
 
         <p className="StarrtingCourseFee">(Starting Course Fees)</p>
 
-       
+       <div className="ViewCourseButton"> 
         <Buttons backgroundColor="#171c8f" hoverColor="#ffffff">
         VIEW COURSE
       </Buttons>
+      </div>
       </div>
       
       <div className="CourseInfoParagraph">

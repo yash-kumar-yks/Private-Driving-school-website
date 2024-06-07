@@ -1,0 +1,24 @@
+.Blog {
+  padding: 40px;
+  border: 1px solid #dbe2ea;
+  border-radius: 6px;
+  width: 200px;
+  height: auto;
+  max-width: 200px;
+}
+
+.Blog-Header {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  color:#171c8f;
+  font-size:0.875rem;
+  word-wrap: break-word;
+}
+
+.Blog-Body {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}

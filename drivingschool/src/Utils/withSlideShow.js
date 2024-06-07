@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function SlideShow({flowCard,isAutomatic, buttons }) {
-    
-    
+
   return (
     <div>
         <div className='Cards'>
