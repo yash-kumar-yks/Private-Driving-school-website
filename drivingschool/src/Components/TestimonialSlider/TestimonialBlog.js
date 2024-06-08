@@ -43,21 +43,32 @@ const SliderComponent = () => {
       User: "Yash",
     },
   ];
+  
+  const [expanded, setExpanded] = useState(false);
+  const [expandedId, setExpandedId] = useState(null);
+
+  const handleClick = (id) => {
+    setExpandedId(prevId => (prevId === id ? null : id));
+};
+ 
+
+
   const buttons=<div></div>;
   const [countcardsVisible, setCountcardsVisible] = useState(0);
-  let indexVar = 0;
-
+  
   const cards = datajson.map((data, idx) => {
-    return <CardTestimonial data={data} />;
+    return <CardTestimonial key={idx}
+    data={data}   handleClick={() => handleClick(idx)}
+    expanded={expandedId === idx}/>;
   });
 
 
   return (
     <div className="TestimonialDiv">
-      <h1 style={{margin:"20px"}}> They Advcate for us</h1>
+      <h1 style={{margin:"20px"}}> They Advocate for us</h1>
       <SlideShow
             flowCard={cards}
-            isAutomatic={false}
+            isAutomatic={true}
             buttons={buttons}
           />
     </div>

@@ -5,7 +5,8 @@ import CoursesCard from "./Components/CoursesCard/CoursesCard";
 import StoreLocator from "./Pages/StoreLocator";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import FindyourCity from "./Components/Map/FindyourCity";
+import Login from "./Pages/Login";
+
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
             
           </Route>
           <Route exact path="/:City" element={<StoreLocator/>}>
+          
+          </Route>
+          <Route exact path="/Login" element={<Login/>}>
           
           </Route>
         </Routes>

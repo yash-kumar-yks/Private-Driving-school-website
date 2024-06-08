@@ -3,7 +3,6 @@
   border: 1px solid #dbe2ea;
   border-radius: 6px;
   width: 200px;
-  height: auto;
   max-width: 200px;
 }
 
@@ -11,8 +10,8 @@
   width: 200px;
   padding: 10px;
   box-sizing: border-box;
-  color:#171c8f;
-  font-size:0.875rem;
+  color: #171c8f;
+  font-size: 0.875rem;
   word-wrap: break-word;
 }
 

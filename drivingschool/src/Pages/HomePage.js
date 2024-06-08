@@ -4,6 +4,7 @@ import CarouselScreen from '../Components/Caraousel/CarouselScreen ';
 import FindyourCity from '../Components/Map/FindyourCity';
 import CoursesCard from '../Components/CoursesCard/CoursesCard';
 import SliderComponent from '../Components/TestimonialSlider/TestimonialBlog'
+import Footer from '../Components/Footer/Footer';
 
 function HomePage() {
    
@@ -15,6 +16,7 @@ function HomePage() {
         <CoursesCard/>
         <FindyourCity/>
         <SliderComponent />
+        <Footer/>
         </div>
     );
 }
