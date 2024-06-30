@@ -2,9 +2,12 @@ import React from "react";
 import "./Header.css";
 import { FaPhoneAlt } from "react-icons/fa";
 import logo from "../../assets/logo.png";
-import { CgProfile } from "react-icons/cg";
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Link } from "react-router-dom";
+
 function Header() {
+  const authState = useSelector((state) => state.auth); 
   return (
     <div className="conatiner-Header">
       <div className="logo_div">
@@ -21,7 +24,13 @@ function Header() {
           </span>
           <input placeholder="Search Here" className="input" />
           <Link to={`/Login`}>
-          <button className="buttonss"> LOGIN </button>
+          <div>
+        {authState.isAuthenticated ? (
+          <button className="buttonss">{authState.user.email}</button>
+        ) : (
+          <button className="buttonss">LOGIN</button>
+        )}
+      </div>
           </Link>
         </div>
         <div className="Header_buttons">
