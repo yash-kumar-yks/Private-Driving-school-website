@@ -26,7 +26,7 @@ function Header() {
           <Link to={`/Login`}>
           <div>
         {authState.isAuthenticated ? (
-          <button className="buttonss">{authState.user.email}</button>
+          <button className="buttonss">{authState.user.name}</button>
         ) : (
           <button className="buttonss">LOGIN</button>
         )}

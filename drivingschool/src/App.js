@@ -6,6 +6,7 @@ import StoreLocator from "./Pages/StoreLocator";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
+import CreateBlog from "./Blogs/CreateBlog";
 
 
 
@@ -22,6 +23,9 @@ function App() {
           
           </Route>
           <Route exact path="/Login" element={<Login/>}>
+          
+          </Route>
+          <Route exact path="/Blogs" element={<CreateBlog/>}>
           
           </Route>
         </Routes>

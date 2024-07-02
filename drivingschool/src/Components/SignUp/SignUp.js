@@ -25,16 +25,18 @@ const SignUp = () => {
       console.log(response);
       if (response.ok) {
         const data = await response.text();
-        if (data == "Invalid credentials") {
+        if (!data) {
             dispatch(loginFailure('Invalid credentials, please try again.'));
           setMessage("Invalid Credentials");
           alert("Invalid credentials, please try again.");
           setPassword("");
         } 
-        else if (data == "Login successful") {
+        else if (data) {
           setMessage("");
-          console.log(authState)
-          dispatch(loginSuccess({ email }));
+          
+          const obj = JSON.parse(data);
+          console.log(obj, obj.name, obj.id);
+         dispatch(loginSuccess(obj));
           navigate("/");
         }
       } else {

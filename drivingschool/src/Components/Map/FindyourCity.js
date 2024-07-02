@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
   import SearchableDropdown from '../../UI/Dropdown';
   import './FindYourCity.css';
   import { Link } from "react-router-dom";
-  import MapPhoto from "../../assets/search-bg.jpg";
   import {
     GetCountries,
     GetState,

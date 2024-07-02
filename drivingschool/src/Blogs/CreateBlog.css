@@ -1,0 +1,69 @@
+/* src/AddBlog.css */
+
+  
+  .add-blog-container {
+    width: 80%;
+    width: 600px;
+    padding: 40px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-blog-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .add-blog-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .add-blog-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .add-blog-form select,
+  .add-blog-form textarea {
+    width: 100%;
+    padding: 12px;
+    padding-right: 20px; /* Added right padding */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .add-blog-form select:focus,
+  .add-blog-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .add-blog-form textarea {
+    height: 200px;
+    resize: vertical;
+  }
+  
+  .add-blog-form .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #171c8f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-blog-form .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
