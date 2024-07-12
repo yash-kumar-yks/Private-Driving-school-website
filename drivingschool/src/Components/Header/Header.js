@@ -3,11 +3,15 @@ import "./Header.css";
 import { FaPhoneAlt } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { useDispatch, useSelector } from 'react-redux';
-
+import { logout } from '../../store'
 import { Link } from "react-router-dom";
 
 function Header() {
+  const dispatch = useDispatch(); 
   const authState = useSelector((state) => state.auth); 
+  const handleLogout=()=>{
+dispatch(logout());
+  }
   return (
     <div className="conatiner-Header">
       <div className="logo_div">
@@ -23,15 +27,20 @@ function Header() {
             <a className="WebisteName" href="">1800 1234 1234</a>
           </span>
           <input placeholder="Search Here" className="input" />
-          <Link to={`/Login`}>
+          
           <div>
-        {authState.isAuthenticated ? (
-          <button className="buttonss">{authState.user.name}</button>
-        ) : (
-          <button className="buttonss">LOGIN</button>
-        )}
+          {authState.isAuthenticated ? (
+            <div>
+              <button className="buttonss">{authState.user.name}</button>
+              <button className="buttonss" onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <Link to="/Login">
+              <button className="buttonss">LOGIN</button>
+            </Link>
+          )}
       </div>
-          </Link>
+          
         </div>
         <div className="Header_buttons">
           <h3 className="Headers">ABOUT US</h3>

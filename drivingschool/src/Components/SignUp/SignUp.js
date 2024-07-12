@@ -22,7 +22,6 @@ const SignUp = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      console.log(response);
       if (response.ok) {
         const data = await response.text();
         if (!data) {
@@ -35,7 +34,6 @@ const SignUp = () => {
           setMessage("");
           
           const obj = JSON.parse(data);
-          console.log(obj, obj.name, obj.id);
          dispatch(loginSuccess(obj));
           navigate("/");
         }

@@ -15,8 +15,8 @@ const CardTestimonial = ({data, handleClick, expanded }) => {
    
     <div className="Blog" onClick={handleClick} style={style}>
     <div style={{ color: "#171c8f", fontSize: "1.25rem" }}>ADVANCE COURSE</div>
-    <div className="Blog-Header" >{data.Heading}</div>
-    <p className='Blog-Body'> {data.Body}</p>
+    <div className="Blog-Header" >{data.title}</div>
+    <p className='Blog-Body'> {data.content}</p>
     <div style={{ color: "#171c8f", fontSize: "0.875rem" }}> {data.User} </div>
     </div>
   )

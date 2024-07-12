@@ -6,7 +6,7 @@ import StoreLocator from "./Pages/StoreLocator";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
-import CreateBlog from "./Blogs/CreateBlog";
+import CreateBlog from "./Components/Blogs/CreateBlog";
 
 
 

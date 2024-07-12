@@ -1,22 +1,26 @@
 import React, {useState} from 'react'
 import './CreateBlog.css';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { addNewBlog } from '../../store'
+import { useNavigate } from "react-router-dom";
 export default function CreateBlog() {
   const [category, setCategory] = useState('');  // State for the dropdown
   const [description, setDescription] = useState('');
+  const dispatch = useDispatch(); 
+
   const authState = useSelector((state) => state.auth); 
-    
+  const navigate = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const newBlog = {
-        category,
-        description,
-      };
+    const newBlog = [{
+        "title":category,
+        "content":description,
+      }];
   
       try {
-        const response = await fetch(`https://api.example.com/${authState.user.email}/blogs`, {
+        dispatch(addNewBlog(newBlog));
+        const response = await fetch(`http://localhost:8080/api/users/${authState.user.email}/blogs`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -26,11 +30,14 @@ export default function CreateBlog() {
   
         if (!response.ok) {
           throw new Error('Failed to add blog');
-        }
-  
-  
-        setCategory('');
+          setCategory('');
         setDescription('');
+        }
+        else{
+          
+          navigate("/");
+        }
+        
       } catch (error) {
         console.error('Error adding blog:', error);
         alert("Cant add Blog");
