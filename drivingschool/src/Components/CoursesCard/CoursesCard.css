@@ -46,3 +46,16 @@ p {
   width: 2rem;
   height: 2rem;
 }
+
+.leftHandClick:hover {
+  filter: drop-shadow(0px 0px 10px #aaa);
+  color: #171c8f;
+}
+.RightHandClick:hover {
+  filter: drop-shadow(0px 0px 10px #aaa);
+  color: #171c8f;
+}
+.CoursePage{
+  position:relative;
+  margin:10px;
+}

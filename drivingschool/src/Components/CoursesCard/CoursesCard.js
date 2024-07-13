@@ -56,11 +56,7 @@ function CoursesCard() {
       : setCountcardsVisible(countcardsVisible + 1);
   };
 
-  const options = [
-    { value: "apple", label: "Apple" },
-    { value: "banana", label: "Banana" },
-    { value: "orange", label: "Orange" },
-  ];
+ 
 
   const handleSelect = (selectedValue) => {
     alert(`Selected value: ${selectedValue}`);
@@ -81,7 +77,7 @@ function CoursesCard() {
 
 
   return (
-    <div>
+    <div className="CoursePage">
       <div className="HeaderCourse">
         <h1>CHOOSE YOUR COURSE TO DRIVE WITH CONFIDENCE ON THE ROAD</h1>
         <p style={{ paddingRight: "100px" }}>
@@ -95,7 +91,7 @@ function CoursesCard() {
         <div>
           <SlideShow
             flowCard={cards}
-            isAutomatic={true}
+            isManual={true}
             buttons={buttons}
           />
         </div>

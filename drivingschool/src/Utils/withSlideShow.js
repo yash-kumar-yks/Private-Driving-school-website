@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function SlideShow({flowCard,isAutomatic, buttons }) {
+export default function SlideShow({flowCard,isManual, buttons }) {
 
   return (
     <div>
         <div className='Cards'>
             {flowCard}
         
-        {isAutomatic? (
+        {isManual? (
             <div>
                 {buttons}
             </div>
