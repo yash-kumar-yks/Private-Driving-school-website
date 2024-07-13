@@ -1,17 +1,18 @@
+
 import React from 'react'
 import Header from '../Components/Header/Header'
-import LoginUser from '../Components/LoginUser/LoginUser'
 import Footer from '../Components/Footer/Footer'
+import SignUpUser from '../Components/SignupUser/SignupUser'
 
-const Login = () => {
+const Signup = () => {
    
   return (
     <div>
     <Header/>
-    <LoginUser/>
+    <SignUpUser/>
     <Footer/>
     </div>
   )
 }
 
-export default Login
+export default Signup

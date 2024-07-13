@@ -35,9 +35,16 @@ dispatch(logout());
               <button className="buttonss" onClick={handleLogout}>Logout</button>
             </div>
           ) : (
+            <div>
             <Link to="/Login">
-              <button className="buttonss">LOGIN</button>
+              <button className="buttonss">Login</button>
             </Link>
+
+            <Link to="/Signup">
+              <button className="buttonss">Signup</button>
+            </Link>
+            
+            </div>
           )}
       </div>
           

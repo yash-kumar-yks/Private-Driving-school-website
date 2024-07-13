@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./SignUp.css";
+import "./LoginUser.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { loginSuccess, loginFailure } from '../../store'
-const SignUp = () => {
+const LoginUser = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch(); 
@@ -82,4 +82,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default LoginUser;

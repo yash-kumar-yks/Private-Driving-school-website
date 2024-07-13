@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
 import CreateBlog from "./Components/Blogs/CreateBlog";
+import Signup from "./Pages/Signup";
 
 
 
@@ -26,6 +27,10 @@ function App() {
           
           </Route>
           <Route exact path="/Blogs" element={<CreateBlog/>}>
+          
+          </Route>
+
+          <Route exact path="/Signup" element={<Signup/>}>
           
           </Route>
         </Routes>
