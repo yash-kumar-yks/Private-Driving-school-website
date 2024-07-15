@@ -3,6 +3,7 @@ import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import "./TestimonialBlog.css";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import CardTestimonial from "../Card/CardTestimonial";
 import SlideShow from "../../Utils/withSlideShow";
 import Buttons from "../../UI/Buttons";
@@ -10,13 +11,13 @@ import Buttons from "../../UI/Buttons";
 const SliderComponent = () => {
   const authState = useSelector((state) => state.auth); 
   const dispatch = useDispatch(); 
-
   const dataJson= authState.dataJson;
-
+  const [visibleStart, setVisibleStart] = useState(0);
+  const visibleCount = 5;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/blogs');
+        const response = await fetch('http://localhost:8080/api/users');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -35,22 +36,61 @@ const SliderComponent = () => {
     const [expanded, setExpanded] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
 
-  const handleClick = (id) => {
+  const handleMouseEnter = (id) => {
     setExpandedId(prevId => (prevId === id ? null : id));
 };
- 
+const [blogsData, setBlogsData] = useState([]);
+useEffect(() => {
+const newBlogsData = [];
 
-
-
-  const buttons=<div></div>;
-  const [countcardsVisible, setCountcardsVisible] = useState(0);
-  console.log(dataJson);
-  const cards = dataJson.map((data, idx) => {
-    return <CardTestimonial key={idx}
-    data={data}   handleClick={() => handleClick(idx)}
-    expanded={expandedId === idx}/>;
+dataJson.forEach((data) => {
+  data.blogs.forEach((blog) => {
+    newBlogsData.push({ blog, name: data.name, address:data.address });
   });
+});
 
+setBlogsData(newBlogsData);
+}, [dataJson]);
+
+
+const handleLeftClick = () => {
+  setVisibleStart((prev) => Math.max(prev - 1, 0));
+};
+
+const handleRightClick = () => {
+  setVisibleStart((prev) => Math.min(prev + 1, blogsData.length - visibleCount));
+};
+
+const handleMouseLeave = () => {
+  setExpandedId(null);
+};
+
+
+const buttons = 
+<div>
+<BsArrowLeftCircleFill onClick={handleLeftClick} className="leftHandClick" />
+<BsArrowRightCircleFill
+  onClick={handleRightClick}
+  className="RightHandClick"
+/>
+ 
+</div>
+
+; 
+console.log(blogsData);
+
+
+const cards = blogsData.slice(visibleStart, visibleStart + visibleCount).map((data, idx) => {
+  return (
+    <CardTestimonial 
+      key={idx}
+      data={data} 
+      handleMouseEnter={() => handleMouseEnter(idx)} 
+      expanded={expandedId === idx}
+      handleMouseLeave={handleMouseLeave}
+    />
+  );
+});
 
   return (
     <div className="TestimonialDiv">
@@ -67,7 +107,7 @@ const SliderComponent = () => {
     </div>
       <SlideShow
             flowCard={cards}
-            isAutomatic={true}
+            isManual={true}
             buttons={buttons}
           />
     </div>

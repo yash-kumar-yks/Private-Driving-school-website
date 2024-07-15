@@ -42,7 +42,6 @@ const LoginUser = () => {
         setMessage("Login Failed");
         dispatch(loginFailure(`Login failed`));
         alert(`Login failed`);
-        setEmail("");
         setPassword("");
       }
     } catch (error) {

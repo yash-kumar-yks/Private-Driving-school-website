@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNewBlog } from '../../store'
 import { useNavigate } from "react-router-dom";
 export default function CreateBlog() {
-  const [category, setCategory] = useState('');  // State for the dropdown
+  const [category, setCategory] = useState('');  
   const [description, setDescription] = useState('');
   const dispatch = useDispatch(); 
 
@@ -59,10 +59,9 @@ export default function CreateBlog() {
             required
           >
             <option value="">Select a category</option>
-            <option value="Technology">Technology</option>
-            <option value="Health">Health</option>
-            <option value="Lifestyle">Lifestyle</option>
-            <option value="Education">Education</option>
+            <option value="Technology">BASIC COURSE</option>
+            <option value="Health">ADVANCED COURSE</option>
+           
           </select>
         </div>
         <div className="form-group">
