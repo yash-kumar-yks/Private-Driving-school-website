@@ -61,7 +61,7 @@ useEffect(() => {
     <div className='FindYourCityDiv'>
     <div className='FindYorCityHeading'>We have come closer to you. Now locate us</div>
     <div style={{color:"white"}}> Locate a driving school in your city.</div>
-    <div style={{display:"flex", justifyContent:"center"}}>
+    <div style={{display:"flex", justifyContent:"center", marginLeft: "-80px" }}>
     <div className='FindCityDropdown'>
     <SearchableDropdown options={options} onSelect={handleSelect}/>
     </div>

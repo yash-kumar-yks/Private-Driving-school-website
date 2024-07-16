@@ -53,6 +53,11 @@ h3:hover {
   text-decoration-color: rgb(242, 242, 246);
   text-underline-offset: 0.4em;
 }
+
+.button-container {
+  display: flex;
+  gap: 10px; 
+}
 .buttonss {
   background-color: #171c8f;
   color: white;
@@ -67,6 +72,8 @@ h3:hover {
   text-decoration: underline 0.15em #171c8f;
   text-underline-offset: 0.2em;
   transition: text-decoration-color 300ms, text-underline-offset 300ms;
+  padding: 10px 20px; 
+  margin: 5px;
 }
 
 .buttonss:hover {
